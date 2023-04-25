@@ -1,4 +1,4 @@
-number = int(input("Введите целое число: "))
+number = int(input("Enter the number: "))
 if number % 2 != 0:
     if number > 20:
         print("Not Weird")

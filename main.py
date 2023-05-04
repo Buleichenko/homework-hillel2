@@ -1,15 +1,26 @@
-n = int(input("Введите число N: "))
-i = 0
-while i <= n:
-    if i % 3 == 0:
-        print(i)
-    i += 1
+password = input("Ведите пароль: ")
+score = 0
 
-n = int(input("Введите число N: "))
-i = 0
-summa = 0
-while i <= n:
-    if i % 3 == 0:
-        summa += i
-    i += 1
-print("Числа от 0 до N, которые делятся на 3 без остатка: ", summa)
+if len(password) >= 8:
+    score += 1
+
+if any(char.isdigit() for char in password):
+    score += 1
+
+if any(char.isupper() for char in password):
+    score += 1
+
+if any(char.islower() for char in password):
+    score += 1
+
+if any(char in '+-/_%$#@;*&^:?><}{[]!' for char in password):
+    score += 1
+
+print(f"Количество балов за пароль: {score}")
+
+if score == 0:
+    print("Пароль слабый. Нужно использовать больше разных символов и длину пароля.")
+elif score < 5:
+    print("Пароль можно улучшить, используя больше символов и увеличивая его длину.")
+else:
+    print("Пароль сложный и надежный!")

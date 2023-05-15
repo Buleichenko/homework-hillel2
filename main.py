@@ -1,37 +1,83 @@
-password = input("Ведите пароль: ")
-score = 0
+# Завдання 1
+numbers = []
 
-if len(password) >= 8:
-    score += 1
+for i in range(5):
+    num = int(input("Введіть число: "))
+    numbers.append(num)
 
-if any(char.isdigit() for char in password):
-    score += 1
+print("Список чисел: ", numbers)
 
-if any(char.isupper() for char in password):
-    score += 1
+# Завдання 2
+A = [1, 2, 3, 4, 5]
+A.pop()
+print(A)
 
-if any(char.islower() for char in password):
-    score += 1
+# Завдання 3
+A = []
 
-if any(char in '+-/_%$#@;*&^:?><}{[]!' for char in password):
-    score += 1
+for i in range(10):
+    num = int(input("Введіть число: "))
+    A.append(num)
 
-print(f"Количество балов за пароль: {score}")
+N = int(input("Введіть число, яке шукаєте: "))
+count = 0
 
-if score == 0:
-    print("Используйте заглавные буквы")
-    print("Минимальная длина пароля 8")
-    print("Использовать цифры")
-    print("Использовать специальные символы")
-elif score < 5:
-    if not any(char.isupper() for char in password):
-        print("Используйте заглавные буквы")
-    if len(password) < 8:
-        print("Минимальная длина пароля 8")
-    if not any(char.isdigit() for char in password):
-        print("Использовать цифры")
-    if not any(char in ['+', '-', '/', '_', '%', '@', '$', '*', '&', '<', '>', '{', '}'] for char in password):
-        print("Используйте специальные символы")
-else:
-    print("Пароль сложный и надежный!")
+for num in A:
+    if num == N:
+        count += 1
+
+print("Кількість повторень числа {}: {}".format(N, count))
+
+# Завдання 4
+A = []
+N = int(input("Введіть кількість чисел: "))
+
+for i in range(N):
+    num = int(input("Введіть число: "))
+    A.append(num)
+
+print("Список чисел у зворотній послідовності: ", A[::-1])
+
+# Завдання 5
+A = []
+C = []
+
+for i in range(5):
+    num = int(input(f"Введіть число {i+1}: "))
+    A.append(num)
+
+for num in A:
+    if num > 5:
+        C.append(num)
+
+print("Числа, що більші за 5:", C)
+
+# Завдання 6
+A = []
+n = int(input("Введіть кількість чисел: "))
+
+for i in range(n):
+    num = int(input(f"Введіть число {i+1}: "))
+    A.append(num)
+
+min_num = A[0]
+max_num = A[-1]
+for num in A:
+    if num < min_num:
+        min_num = num
+    if num > max_num:
+        max_num = num
+
+print("Мінімальне значення:", min_num)
+print("Максимальне значення:", max_num)
+
+# Завдання 7
+import re
+
+text = input("Введіть текст: ")
+
+digits = re.findall(r'\d', text)
+
+print("Кількість цифр: ", len(digits))
+
 
